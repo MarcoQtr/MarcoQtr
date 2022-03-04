@@ -17,6 +17,9 @@ img {
 .main-nav {
     display: none;
 }
+.main-header {
+    padding: 0 20px;
+}
 .main-header__container{
     display: flex;
     justify-content: space-around;
@@ -27,6 +30,7 @@ img {
     border: 1px solid black;
     display: block;
     padding: 10px 20px;
+    cursor: pointer;
 }
 .main-header__btn{
     display: block;
@@ -34,4 +38,8 @@ img {
     color:black;
     border: 1px solid black;
     text-decoration: none;
+}
+.main-header_input{
+    display: block;
+    padding: 10px;
 }
