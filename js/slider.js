@@ -1,43 +1,14 @@
-const slider = document.querySelector("#slider");
-let sliderSection = document.querySelectorAll(".slider__section");
-let sliderSectionLast = sliderSectionLast[sliderSection.length -1]
+var slideIndex = 0;
+showSlides();
 
-const btnLeft = document.querySelector("#btn-left");
-const btnRight = document.querySelector("#btn-right");
-
-slider.insertAdjacentElement('afterbegin', sliderSectionLast);
-
-function Next() {
-    let sliderSectionFirst = document.querySelectorAll(".slider__section")[0];
-    slider.style.marginLeft ="-200%";
-    slider.style.transition = "all 0.5s";
-    setTimeout(function(){
-        slider.style.transition ="none";
-        slider.insertAdjecentElement ('beforeend', sliderSectionFirst);
-        slider.style.marginLeft = "-100%";
-    } ,500 );
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
-
-function Prev() {
-    let sliderSection = document.querySelector (".slider__section");
-    let sliderSectionLast = sliderSection[sliderSection.length -1];
-    slider.style.marginLeft = "0";
-    slider.style.transition = "all 0.5s";
-    setTimeout(function(){
-        slider.style.transition ="none";
-        slider.insertAdjacentElement('afterbegin', sliderSectionLast);
-        slider.style.marginLeft = "-100%";
-    }, 500);
-}
-
-btnRight.addEventListener('click', function(){
-    Next();
-});
-
-btnLeft.addEventListener('click', function(){
-    Prev();
-});
-
-setInterval(function (){
-    Next();
-}, 5000);
